@@ -17,7 +17,7 @@ private:
 
 public:
     Room();
-    ~Room();
+    virtual ~Room() = 0;
 
     virtual Room* GetRoomTo(Direction);
 };

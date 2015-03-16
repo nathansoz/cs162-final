@@ -1,0 +1,8 @@
+[start]
+You find yourself in a spaceship with only a room in front of you.
+n: room1
+e: null
+s: null
+w: null
+
+[room1]

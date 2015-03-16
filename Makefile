@@ -1,13 +1,12 @@
 CC = g++
-INC_DIR = ./thirdparry/rapidjson
-CFLAGS = -std=c++0x -I$(INC_DIR)
+CFLAGS = -std=c++0x
 PROGS = main
 MAKEFLAGS = -k
 
 all: $(PROGS)
 
 main:
-	$(CC) $(CFLAGS) main.cpp -o main
+	$(CC) $(CFLAGS) include/SozLibs/*.cpp include/creatures/*.cpp main.cpp -o main
 
 clean:
 	rm -f *.o main
