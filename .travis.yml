@@ -1,0 +1,13 @@
+language: cpp
+
+compiler:
+  - gcc
+
+before_script:
+  - sudo apt-get install -qq libboost-dev
+  - mkdir build
+  - cd build
+  - cmake ..
+  
+
+script: make
