@@ -6,8 +6,13 @@
 #define _CS162_FINAL_COREROOM_H_
 
 
-class CoreRoom {
+#include "Room.h"
 
+class CoreRoom : public Room
+{
+private:
+public:
+    CoreRoom(std::string name, std::string enterText, Room* north, Room* east, Room* south, Room* west);
 };
 
 

@@ -7,17 +7,30 @@
 
 #include "Room.h"
 #include "../creatures/Character.h"
+#include "../world/world.h"
+#include "../player/Player.h"
 
 class BattleRoom : public Room
 {
-private:
+protected:
     Character* creature;
+    bool creatureDefeated;
+    bool keyPickedUp;
+
+    int battleRoomNumber;
 
     Character* SelectCreature();
 
 public:
-    BattleRoom();
+    BattleRoom(std::string name, std::string enterText, int battleRoomNumber, Room* north, Room* east, Room* south, Room* west);
     ~BattleRoom();
+
+    void Investigate(Player&);
+    void Battle(Character* ally);
+    void SetDefeated();
+    void SetKeyPickedUp();
+
+    bool GetInvestigatable();
 
 };
 
