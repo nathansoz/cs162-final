@@ -35,12 +35,63 @@ World* PopulateWorld()
     Room1->SetNorthRoom(Room2);
     gameWorld->AddRoom(Room2);
 
-    //Room Three Setup (Hallway - West Room)
+    //Room Three Setup (Hallway1 - West Room)
     std::string room3Name = "Battle Room 1";
     std::string room3Text = "You hear something lurking in the corner...";
     Room* Room3 = new BattleRoom(room3Name, room3Text, 1, NULL, Room2, NULL, NULL);
     Room2->SetWestRoom(Room3);
     gameWorld->AddRoom(Room3);
+
+    //Room Four Setup (Hallway 1 - East Room)
+    std::string room4Name = "Core Room 1";
+    std::string room4Text = "The warp core hums loudly... there is a slot for a key on the control panel...";
+    Room* Room4 = new CoreRoom(room4Name, room4Text, 1, NULL, NULL, NULL, Room2);
+    Room2->SetEastRoom(Room4);
+    gameWorld->AddRoom(Room4);
+
+    //Room Five Setup (Hallway 2)
+    std::string room5Name = "Hallway 2";
+    std::string room5Text = "You are in the middle of the long hallway. Again, you hear a loud banging to the west...";
+    Room* Room5 = new StandardRoom(room5Name, room5Text, NULL, NULL, Room2, NULL);
+    Room2->SetNorthRoom(Room5);
+    gameWorld->AddRoom(Room5);
+
+    //Room Six Setup (Hallway2 - West Room)
+    std::string room6Name = "Battle Room 2";
+    std::string room6Text = "You hear something lurking in the corner...";
+    Room* Room6 = new BattleRoom(room6Name, room6Text, 2, NULL, Room5, NULL, NULL);
+    Room5->SetWestRoom(Room6);
+    gameWorld->AddRoom(Room6);
+
+    //Room Seven Setup (Hallway2 - East Room)
+    std::string room7Name = "Core Room 2";
+    std::string room7Text = "The warp core hums loudly... there is a slot for a key on the control panel...";
+    Room* Room7 = new CoreRoom(room7Name, room7Text, 2, NULL, NULL, NULL, Room5);
+    Room5->SetEastRoom(Room7);
+    gameWorld->AddRoom(Room7);
+
+    //Room Eight Setup (Hallway 3)
+    std::string room8Name = "Hallway 3";
+    std::string room8Text = "You are at the end of the long hallway. The bridge is in front of you.\n"
+                            "Again, you hear a loud banging to the west...";
+    Room* Room8 = new StandardRoom(room8Name, room8Text, NULL, NULL, Room5, NULL);
+    Room5->SetNorthRoom(Room8);
+    gameWorld->AddRoom(Room8);
+
+    //Room Nine Setup (Hallway2 - West Room)
+    std::string room9Name = "Battle Room 2";
+    std::string room9Text = "You hear something lurking in the corner...";
+    Room* Room9 = new BattleRoom(room9Name, room9Text, 3, NULL, Room8, NULL, NULL);
+    Room8->SetWestRoom(Room9);
+    gameWorld->AddRoom(Room9);
+
+    //Room Ten Setup (Hallway2 - East Room)
+    std::string room10Name = "Core Room 2";
+    std::string room10Text = "The warp core hums loudly... there is a slot for a key on the control panel...";
+    Room* Room10 = new CoreRoom(room10Name, room10Text, 3, NULL, NULL, NULL, Room8);
+    Room8->SetEastRoom(Room10);
+    gameWorld->AddRoom(Room10);
+
 
     //push the object back for consuption in gameloop
     return gameWorld;

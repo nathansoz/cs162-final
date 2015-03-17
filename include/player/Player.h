@@ -14,10 +14,18 @@ private:
     bool key2Obtained;
     bool key3Obtained;
 
+    bool core1Verification;
+    bool core2Verification;
+    bool core3Verification;
+
 public:
     Player();
     ~Player();
     void SetKeyObtained(int);
+    bool GetKeyObtained(int);
+
+    void SetCoreVerificationObtained(int);
+    bool GetCoreVerificationObtained(int);
 
 };
 

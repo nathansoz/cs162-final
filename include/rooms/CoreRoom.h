@@ -11,8 +11,12 @@
 class CoreRoom : public Room
 {
 private:
+    int coreRoomNumber;
+    void SetCoreShutdown();
 public:
-    CoreRoom(std::string name, std::string enterText, Room* north, Room* east, Room* south, Room* west);
+    CoreRoom(std::string name, std::string enterText, int coreRoomNumber, Room* north, Room* east, Room* south, Room* west);
+    void Investigate(Player&);
+
 };
 
 
