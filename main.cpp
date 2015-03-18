@@ -8,6 +8,7 @@
 #include "include/rooms/BattleRoom.h"
 #include "include/rooms/CoreRoom.h"
 #include "include/rooms/StandardRoom.h"
+#include "include/rooms/Bridge.h"
 
 #include "include/creatures/Barbarian.h"
 
@@ -92,6 +93,14 @@ World* PopulateWorld()
     Room8->SetEastRoom(Room10);
     gameWorld->AddRoom(Room10);
 
+    //Bridge
+    std::string bridgeName = "Bridge";
+    std::string bridgeText = "You reach the bridge. Red lights are flashing everywhere. The warp core switch is in the"
+                                "center of the room.";
+    Room* bridge = new Bridge(bridgeName, bridgeText, NULL, NULL, Room8, NULL);
+    Room8->SetNorthRoom(bridge);
+    gameWorld->AddRoom(bridge);
+
 
     //push the object back for consuption in gameloop
     return gameWorld;
@@ -103,14 +112,15 @@ void GameLoop(World* gameWorld)
 
     std::cout << "Welcome to the spaceship game!" << std::endl << std::endl;
     gameWorld->SetCurrentRoom(gameWorld->GetStart());
-    bool exit = false;
 
     do
     {
+
         char command;
 
 
         std::cout << gameWorld->GetCurrentRoom()->GetEntryText() << std::endl;
+        std::cout << "You have " << gameWorld->GetTurns() << " clicks before core meltdown!" << std::endl;
 
         std::cout << "What would you like to do?" << std::endl << "You can... ";
         if(gameWorld->GetCurrentRoom()->GetRoomTo(NORTH))
@@ -140,6 +150,7 @@ void GameLoop(World* gameWorld)
                 else
                 {
                     std::cout << "Moving one room to the north." << std::endl;
+                    gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
 
@@ -153,6 +164,7 @@ void GameLoop(World* gameWorld)
                 else
                 {
                     std::cout << "Moving one room to the east." << std::endl;
+                    gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
 
@@ -166,6 +178,7 @@ void GameLoop(World* gameWorld)
                 else
                 {
                     std::cout << "Moving one room to the south." << std::endl;
+                    gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
 
@@ -179,6 +192,7 @@ void GameLoop(World* gameWorld)
                 else
                 {
                     std::cout << "Moving one room to the west." << std::endl;
+                    gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
 
@@ -187,19 +201,32 @@ void GameLoop(World* gameWorld)
             case 'i':
             {
                 gameWorld->GetCurrentRoom()->Investigate(player);
+                gameWorld->TurnOver();
                 break;
             }
             case 'x':
             {
-                exit = true;
-                break;
+                std::cout << "Thank you for playing." << std::endl;
+                delete gameWorld;
+                exit(0);
             }
             default:
             {
                 std::cout << "Invalid command!" << std::endl;
             }
         }
-    } while(!exit);
+    } while(!player.GetPlayerWon() && gameWorld->GetTurns() > 0);
+
+    if(player.GetPlayerWon())
+    {
+        std::cout << "You won!" << std::endl;
+    }
+    else
+    {
+        std::cout << "You are out of time... a rushing fireball comes your way. Darkness overtakes you." << std::endl;
+    }
+
+    delete gameWorld;
 
 }
 

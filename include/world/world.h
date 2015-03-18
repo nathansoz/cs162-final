@@ -8,12 +8,15 @@
 #include "../rooms/Room.h"
 #include <vector>
 
+const int NUM_TURNS = 30;
+
 class World
 {
 private:
     std::vector<Room*> rooms;
     Room* currentRoom;
     Room* entryPoint;
+    int numTurns = NUM_TURNS;
 
 public:
     World();
@@ -24,6 +27,8 @@ public:
     Room* GetStart();
     Room* SetCurrentRoom(Room*);
     Room* SetStart(Room*);
+    void TurnOver();
+    int GetTurns();
 
 };
 

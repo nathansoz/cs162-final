@@ -18,6 +18,8 @@ private:
     bool core2Verification;
     bool core3Verification;
 
+    bool won;
+
 public:
     Player();
     ~Player();
@@ -26,6 +28,9 @@ public:
 
     void SetCoreVerificationObtained(int);
     bool GetCoreVerificationObtained(int);
+
+    void SetPlayerWon();
+    bool GetPlayerWon();
 
 };
 

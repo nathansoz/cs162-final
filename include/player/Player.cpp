@@ -15,6 +15,8 @@ Player::Player()
     core2Verification = false;
     core3Verification = false;
 
+    won = false;
+
 }
 
 Player::~Player()
@@ -87,4 +89,14 @@ bool Player::GetCoreVerificationObtained(int core)
         default:
             return false;
     }
+}
+
+void Player::SetPlayerWon()
+{
+    won = true;
+}
+
+bool Player::GetPlayerWon()
+{
+    return won;
 }

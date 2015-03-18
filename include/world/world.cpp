@@ -44,3 +44,13 @@ Room* World::SetCurrentRoom(Room* current)
     this->currentRoom = current;
 }
 
+void World::TurnOver()
+{
+    numTurns--;
+}
+
+int World::GetTurns()
+{
+    return numTurns;
+}
+
