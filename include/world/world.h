@@ -8,7 +8,7 @@
 #include "../rooms/Room.h"
 #include <vector>
 
-const int NUM_TURNS = 30;
+const int NUM_TURNS = 50;
 
 class World
 {
