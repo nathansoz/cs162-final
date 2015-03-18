@@ -118,7 +118,7 @@ void BattleRoom::Investigate(Player& player)
 
     this->Battle(ally);
 
-
+    delete ally;
 }
 
 void BattleRoom::Battle(Character *ally)
