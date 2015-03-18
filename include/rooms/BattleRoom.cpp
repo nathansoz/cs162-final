@@ -80,6 +80,7 @@ void BattleRoom::Investigate(Player& player)
         std::cout << "3) Goblin" << std::endl;
         std::cout << "4) Reptile Person" << std::endl;
         std::cout << "5) Shadow" << std::endl;
+        std::cout << "choice: ";
 
 
         selection = getchar();
