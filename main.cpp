@@ -149,7 +149,7 @@ void GameLoop(World* gameWorld)
                     std::cout << "You cannot go that way." << std::endl;
                 else
                 {
-                    std::cout << "Moving one room to the north." << std::endl;
+                    std::cout << "Moving one room to the north." << std::endl << std::endl;
                     gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
@@ -163,7 +163,7 @@ void GameLoop(World* gameWorld)
                     std::cout << "You cannot go that way." << std::endl;
                 else
                 {
-                    std::cout << "Moving one room to the east." << std::endl;
+                    std::cout << "Moving one room to the east." << std::endl << std::endl;
                     gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
@@ -177,7 +177,7 @@ void GameLoop(World* gameWorld)
                     std::cout << "You cannot go that way." << std::endl;
                 else
                 {
-                    std::cout << "Moving one room to the south." << std::endl;
+                    std::cout << "Moving one room to the south." << std::endl << std::endl;
                     gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
@@ -191,7 +191,7 @@ void GameLoop(World* gameWorld)
                     std::cout << "You cannot go that way." << std::endl;
                 else
                 {
-                    std::cout << "Moving one room to the west." << std::endl;
+                    std::cout << "Moving one room to the west." << std::endl << std::endl;
                     gameWorld->TurnOver();
                     gameWorld->SetCurrentRoom(tmpRoom);
                 }
