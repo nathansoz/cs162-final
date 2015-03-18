@@ -16,7 +16,7 @@ private:
     std::vector<Room*> rooms;
     Room* currentRoom;
     Room* entryPoint;
-    int numTurns = NUM_TURNS;
+    int numTurns;
 
 public:
     World();

@@ -6,6 +6,7 @@
 
 World::World()
 {
+    numTurns = NUM_TURNS;
 }
 World::~World()
 {
