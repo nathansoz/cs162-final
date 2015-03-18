@@ -234,6 +234,29 @@ int main()
 {
     srand(time(NULL));
 
+    char hint;
+    do
+    {
+        std::cout << "Do you want to show the hints? (y/n): ";
+        hint = std::getchar();
+        std::cin.ignore(1000, '\n');
+
+        if(hint == 'y')
+        {
+            std::cout << "1. Your first move is north.\n"
+                         "2. Then go west first/east second for each segment of hallway\n"
+                         "3. Blue men are powerful allies and should win almost all the time\n"
+                         "4. Each key works on the core in the room across from it...\n"
+                         "5. The reflection design may give you more details on how to win.\n\n";
+            break;
+        }
+        else if(hint == 'n')
+            break;
+        else
+            continue;
+    }
+    while(true);
+
     //Init
     World* gameWorld = PopulateWorld();
 
